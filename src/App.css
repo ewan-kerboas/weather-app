@@ -1,38 +1,285 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section {
+  background-image: url('./bcg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
+  background: #000;
 }
 
-.App-header {
-  background-color: #282c34;
+.content {
+  position: relative;
+  z-index: 2;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: column;
+}
+
+.content .card {
+  height: auto;
+  width: 60%;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  margin: 40px auto;
+}
+
+.search {
+  width: 50%;
+}
+
+.search form {
+  display: flex;
+}
+
+input {
+  font-size: 16px;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: #fff;
+  border-radius: 12px 0 0 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 13px 21px rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+button {
+  cursor: pointer;
+  background: #2196F3;
   color: white;
+  transition: 0.5s;
+  border: none;
+  border-radius: 0 12px 12px 0;
+  padding: 0 10px;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background: #2195f3be;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weather-main-info {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgb(81, 81, 255);
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  display: flex;
+  margin: 20px 40px;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon img {
+  max-width: 100%;
+  width: 40px;
+}
+
+.text {
+  margin-top: 10px;
+  color: #fff;
+}
+
+.text h3 {
+  font-size: 26px;
+}
+
+.text h4 {
+  color: fff;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.temp {
+  color: #fff;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.temp h3 {
+  font-size: 14px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-top: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "°c";
+  color: #000;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  content: "°f";
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.more-infos {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.more-infos h6 {
+  color:rgba(0, 0, 0, 0.4);
+  font-size: 12px;
+}
+
+.more-infos p {
+  color: #000;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.last-edit {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.radar, .leaflet-container {
+  height: 40vh !important;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.location-infos {
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.list {
+  display: flex;
+}
+
+.list ul {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.list ul:nth-child(1) {
+  margin-right: 10px;
+}
+
+.list li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.308);
+  margin-top: 10px;
 }
